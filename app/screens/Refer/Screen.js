@@ -1,6 +1,7 @@
+import Clipboard from "@react-native-clipboard/clipboard";
 import { AppBar } from "@react-native-material/core";
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -19,7 +20,19 @@ const width = Dimensions.get("screen").width;
 const height = Dimensions.get("screen").height;
 
 export default function ReferScreen() {
+  const [copyText, setCopyText] = useState(null);
   const navigation = useNavigation();
+
+  useEffect(() => {
+    const getClipboardContent = async () => {
+      await Clipboard.getString(copyText);
+    };
+
+    if (copyText) {
+      getClipboardContent();
+    }
+  }, [copyText]);
+
   return (
     <SafeAreaView style={[style.area]}>
       <View style={[style.main]}>
@@ -73,7 +86,7 @@ export default function ReferScreen() {
                   paddingHorizontal: 15,
                 },
               ]}
-              // onPress={goNextSlide}
+              onPress={() => setCopyText("GTYCDO1254")}
             >
               <Text style={[style.txt1]}>GTYCDO1254</Text>
               <View style={{ flexDirection: "row" }}>
@@ -96,7 +109,7 @@ export default function ReferScreen() {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={{ paddingVertical: 20 }}>
+          {/* <View style={{ paddingVertical: 20 }}>
             <TouchableOpacity
               style={[
                 style.btn,
@@ -109,7 +122,7 @@ export default function ReferScreen() {
             >
               <Text style={[style.btntxt]}>Invite Friends</Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
         </ScrollView>
       </View>
     </SafeAreaView>

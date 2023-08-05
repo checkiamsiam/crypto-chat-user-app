@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import ContractScreeen from "../screens/Contract/Screen";
+import ContractScreen from "../screens/Contract/Screen";
 import HomeScreen from "../screens/Home/Screen";
 import ProfileScreen from "../screens/Profile/Screen";
 import WalletScreen from "../screens/Wallet/Screen";
@@ -61,8 +61,8 @@ export default function MyTabs() {
       />
 
       <Tab.Screen
-        name="ContractScreeen"
-        component={ContractScreeen}
+        name="ContractScreen"
+        component={ContractScreen}
         options={{
           tabBarIcon: ({ focused, color }) => {
             return (

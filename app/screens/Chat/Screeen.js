@@ -17,7 +17,7 @@ import ChatHeader from "../../layouts/ChatHeader";
 import { Colors } from "../../theme/color";
 import style from "../../theme/style";
 
-const ChatScreen = () => {
+const ChatScreen = ({ route }) => {
   const [selectedMessages, setSelectedMessages] = useState([]);
   const [messages, setMessages] = useState([
     {
@@ -125,7 +125,7 @@ const ChatScreen = () => {
         behavior={Platform.OS === "ios" ? "padding" : null}
       >
         <View style={[style.main]}>
-          <ChatHeader />
+          <ChatHeader data={route?.params} />
           <ScrollView
             ref={scrollViewRef}
             contentContainerStyle={{ flexGrow: 1 }}

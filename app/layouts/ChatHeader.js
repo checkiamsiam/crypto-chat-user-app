@@ -3,12 +3,12 @@ import React from "react";
 import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native";
 import { Avatar } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import icon from "../assets/image/Coin.png";
 import { Colors } from "../theme/color";
-
 const width = Dimensions.get("screen").width;
 const height = Dimensions.get("screen").height;
 
-const ChatHeader = () => {
+const ChatHeader = ({ data }) => {
   const navigation = useNavigation();
   return (
     <View
@@ -21,9 +21,7 @@ const ChatHeader = () => {
       }}
     >
       <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("ContractScreeen")}
-        >
+        <TouchableOpacity onPress={() => navigation.navigate("ContractScreen")}>
           <Avatar.Icon
             icon="arrow-left"
             style={{ backgroundColor: Colors.secondary }}
@@ -32,7 +30,7 @@ const ChatHeader = () => {
           />
         </TouchableOpacity>
         <Image
-          source={require("../assets/image/image.png")}
+          source={icon}
           resizeMode="stretch"
           style={{ width: width / 9, height: height / 20 }}
         />
@@ -44,7 +42,9 @@ const ChatHeader = () => {
               color: Colors.active,
             }}
           >
-            Smith Rollins
+            {data?.chatMode === "admin"
+              ? "CryptoChat Admin"
+              : data?.packageName}
           </Text>
           <Text
             style={{
@@ -53,7 +53,7 @@ const ChatHeader = () => {
               color: Colors.disable,
             }}
           >
-            online
+            CryptoChat Official
           </Text>
         </View>
       </View>
