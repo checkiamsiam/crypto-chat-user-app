@@ -187,7 +187,7 @@ export default function NotificationScreen({ navigation }) {
         behavior={Platform.OS === "ios" ? "padding" : null}
       >
         <View style={[style.main]}>
-          <ScreenHeader title="Notification" />
+          <ScreenHeader title="Notifications" />
 
           <ScrollView showsVerticalScrollIndicator={false}>
             <FlatList

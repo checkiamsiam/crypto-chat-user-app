@@ -4,6 +4,8 @@ import HomeHeader from "../../layouts/HomeHeader";
 import style from "../../theme/style";
 import CurrentWallet from "./CurrentWallet";
 import OurPackages from "./OurPackages";
+import PackageDayCount from "./PackageDayCount";
+import { Text } from "react-native";
 
 export default function HomeScreen() {
   return (
@@ -17,6 +19,7 @@ export default function HomeScreen() {
         >
           <CurrentWallet />
           <OurPackages />
+          <PackageDayCount />
         </ScrollView>
       </View>
     </SafeAreaView>
