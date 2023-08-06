@@ -14,7 +14,7 @@ const CurrentWallet = () => {
         backgroundColor: Colors.secondary,
         padding: 20,
         borderRadius: 20,
-        marginTop: 20,
+        marginTop: 10,
         marginBottom: 10,
       }}
     >
