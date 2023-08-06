@@ -14,6 +14,7 @@ import NotificationScreen from "../screens/Notification/Screen";
 import ReferScreen from "../screens/Refer/Screen";
 import SignupScreen from "../screens/SignUp/Screen";
 import SplashScreen from "../screens/Splash/Screen";
+import PackageDetailScreen from "../screens/PackageDetails/Screen";
 
 const Stack = createNativeStackNavigator();
 
@@ -77,6 +78,11 @@ export default function StackNavigator() {
         <Stack.Screen
           name="Notification"
           component={NotificationScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PackageDetail"
+          component={PackageDetailScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

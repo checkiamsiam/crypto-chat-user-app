@@ -115,14 +115,14 @@ export default function ProfileScreen() {
               onPress={() => navigation.navigate("Portfolio")}
             >
               <Avatar.Icon
-                icon="wallet"
+                icon="history"
                 style={{ backgroundColor: "#A3DAFE" }}
                 color={Colors.primary}
                 size={40}
               />
               <View style={{ marginHorizontal: 10 }}>
                 <Text style={[style.txt1, { fontFamily: "Poppins-Bold" }]}>
-                  Portfolio
+                  Buy Package History
                 </Text>
               </View>
               <View
@@ -149,14 +149,41 @@ export default function ProfileScreen() {
               }}
             >
               <Avatar.Icon
-                icon="credit-card"
+                icon="account-convert"
                 style={{ backgroundColor: "#A3DAFE" }}
                 color={Colors.primary}
                 size={40}
               />
               <View style={{ marginHorizontal: 10 }}>
                 <Text style={[style.txt1, { fontFamily: "Poppins-Bold" }]}>
-                  Billing/Payment
+                  Genaration
+                </Text>
+              </View>
+              <View style={{ flex: 1, alignItems: "flex-end" }}>
+                <Icon name="chevron-right" color="#9EA3AE" size={30} />
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View style={{ paddingTop: 10 }}>
+            <TouchableOpacity
+              style={{
+                paddingVertical: 15,
+                flexDirection: "row",
+                backgroundColor: Colors.secondary,
+                paddingHorizontal: 10,
+                borderRadius: 15,
+                alignItems: "center",
+              }}
+            >
+              <Avatar.Icon
+                icon="information-variant"
+                style={{ backgroundColor: "#A3DAFE" }}
+                color={Colors.primary}
+                size={40}
+              />
+              <View style={{ marginHorizontal: 10 }}>
+                <Text style={[style.txt1, { fontFamily: "Poppins-Bold" }]}>
+                  Forex info
                 </Text>
               </View>
               <View style={{ flex: 1, alignItems: "flex-end" }}>
@@ -192,33 +219,7 @@ export default function ProfileScreen() {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={{ paddingTop: 10 }}>
-            <TouchableOpacity
-              style={{
-                paddingVertical: 15,
-                flexDirection: "row",
-                backgroundColor: Colors.secondary,
-                paddingHorizontal: 10,
-                borderRadius: 15,
-                alignItems: "center",
-              }}
-            >
-              <Avatar.Icon
-                icon="help"
-                style={{ backgroundColor: "#A3DAFE" }}
-                color={Colors.primary}
-                size={40}
-              />
-              <View style={{ marginHorizontal: 10 }}>
-                <Text style={[style.txt1, { fontFamily: "Poppins-Bold" }]}>
-                  FAQ
-                </Text>
-              </View>
-              <View style={{ flex: 1, alignItems: "flex-end" }}>
-                <Icon name="chevron-right" color="#9EA3AE" size={30} />
-              </View>
-            </TouchableOpacity>
-          </View>
+
           <View style={{ paddingTop: 30, marginBottom: 70 }}>
             <TouchableOpacity
               style={[
