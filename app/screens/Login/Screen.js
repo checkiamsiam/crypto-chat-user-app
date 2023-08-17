@@ -19,7 +19,27 @@ import style from "../../theme/style";
 export default function LoginScreen() {
   const navigation = useNavigation();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  const handleLogin = () => {
+    if (email === "") {
+      setError("email can't be empty");
+      return;
+    } else if (password === "") {
+      setError("password can't be empty");
+      return;
+    } else {
+      const data = {
+        email: email,
+        password: password,
+      };
+      console.log("all is good");
+      console.log(data);
+      navigation.navigate("BottomNavigator");
+    }
+  };
   return (
     <SafeAreaView style={[style.area, { paddingTop: 100 }]}>
       <KeyboardAvoidingView
@@ -41,6 +61,7 @@ export default function LoginScreen() {
                 selectionColor={Colors.primary}
                 placeholderTextColor={Colors.disable}
                 style={style.txtinput}
+                onChangeText={(text) => setEmail(text)}
               />
 
               <View style={style.inputContainer}>
@@ -49,6 +70,7 @@ export default function LoginScreen() {
                   secureTextEntry={isPasswordVisible}
                   selectionColor={Colors.primary}
                   placeholderTextColor={Colors.disable}
+                  onChange={(text) => setPassword(text)}
                   style={[
                     {
                       paddingHorizontal: 10,
@@ -84,12 +106,25 @@ export default function LoginScreen() {
               </View>
             </View>
 
-            <View style={{ marginTop: 40 }}>
+            {error && (
+              <View
+                style={{
+                  flexDirection: "row",
+                  marginTop: 10,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginLeft: 5,
+                }}
+              >
+                <Text style={[{ color: "red" }, { marginLeft: 2 }]}>
+                  {error}
+                </Text>
+              </View>
+            )}
+
+            <View style={{ marginTop: 20 }}>
               <View>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("BottomNavigator")}
-                  style={style.btn}
-                >
+                <TouchableOpacity onPress={handleLogin} style={style.btn}>
                   <Text style={style.btntxt}>Login</Text>
                 </TouchableOpacity>
               </View>

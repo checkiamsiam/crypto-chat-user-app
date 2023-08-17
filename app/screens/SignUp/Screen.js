@@ -19,6 +19,37 @@ export default function SignupScreen() {
   const navigation = useNavigation();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [refferal, setRefferal] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSignUP = () => {
+    if (name === "") {
+      setError("name can't be empty");
+      return;
+    } else if (email === "") {
+      setError("email can't be empty");
+      return;
+    } else if (password === "") {
+      setError("password can't be empty");
+      return;
+    } else if (!isSelected) {
+      setError("You are not accept the terms and conditions");
+      return;
+    } else {
+      const data = {
+        name: name,
+        email: email,
+        password: password,
+        refferal: refferal,
+      };
+      console.log("all is good");
+      console.log(data);
+      navigation.navigate("BottomNavigator");
+    }
+  };
 
   return (
     <SafeAreaView style={[style.area]}>
@@ -38,9 +69,10 @@ export default function SignupScreen() {
             <View style={{ marginTop: 40 }}>
               <TextInput
                 placeholder="Full name"
-                selectionColor={Colors.primary}
-                placeholderTextColor={Colors.disable}
-                style={style.txtinput}
+                selectionColor={Colors?.primary}
+                placeholderTextColor={Colors?.disable}
+                style={style?.txtinput}
+                onChangeText={(text) => setName(text)}
               />
 
               <TextInput
@@ -48,12 +80,14 @@ export default function SignupScreen() {
                 selectionColor={Colors.primary}
                 placeholderTextColor={Colors.disable}
                 style={[style.txtinput, { marginTop: 20 }]}
+                onChangeText={(text) => setEmail(text)}
               />
               <TextInput
                 placeholder="refferal code (optional)"
                 selectionColor={Colors.primary}
                 placeholderTextColor={Colors.disable}
                 style={[style.txtinput, { marginTop: 20 }]}
+                onChangeText={(text) => setRefferal(text)}
               />
 
               <View style={style.inputContainer}>
@@ -62,6 +96,7 @@ export default function SignupScreen() {
                   secureTextEntry={isPasswordVisible}
                   selectionColor={Colors.primary}
                   placeholderTextColor={Colors.disable}
+                  onChangeText={(text) => setPassword(text)}
                   style={[
                     {
                       paddingHorizontal: 10,
@@ -81,6 +116,21 @@ export default function SignupScreen() {
                   />
                 </TouchableOpacity>
               </View>
+              {error && (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginTop: 10,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginLeft: 5,
+                  }}
+                >
+                  <Text style={[{ color: "red" }, { marginLeft: 2 }]}>
+                    {error}
+                  </Text>
+                </View>
+              )}
 
               <TouchableOpacity
                 style={{
@@ -100,10 +150,7 @@ export default function SignupScreen() {
 
             <View style={{ marginTop: 40 }}>
               <View>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("BottomNavigator")}
-                  style={style.btn}
-                >
+                <TouchableOpacity onPress={handleSignUP} style={style.btn}>
                   <Text style={style.btntxt}>Sign Up</Text>
                 </TouchableOpacity>
               </View>

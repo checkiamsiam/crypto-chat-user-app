@@ -1,7 +1,12 @@
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
-import { Avatar } from "react-native-paper";
 
 const Section = () => {
   const handleButtonPress = (type) => {
